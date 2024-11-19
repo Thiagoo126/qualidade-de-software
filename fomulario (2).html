@@ -1,39 +1,234 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
+    <link rel="shortcut icon" type="imagex/png" href="logo 2.0.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulário de Contato</title>
+    <title>Portal de notícias - T.D.T.I</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #fc8cc0cb;
+            color: #1f063f;
+        }
+        header {
+            background: rgb(233, 97, 190);
+            background: radial-gradient(circle, rgb(252, 152, 204) 26%, rgb(248, 80, 167) 100%);
+            color: rgba(40, 5, 83, 0.897);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 18px;
+        }
+        .logo{
+            height: 65px;
+        }
+        .nav-container {
+            display: flex;
+            flex: 1; /* Para que ocupe todo o espaço restante */
+            justify-content: center; /* Centraliza o menu */
+        }
+        nav {
+            display: flex;
+            gap: 40px; /* Espaçamento entre os itens do menu */
+        }
+        nav a {
+            color: rgb(59, 3, 59);
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        nav a:hover {
+            background-color: #78164e;
+            color: black;
+        }
+        .search-container {
+            display: flex;
+            align-items: center;
+        }
+        input[type="text"] {
+            padding: 5px;
+            border-radius: 5px;
+            border: none;
+        }
+        .container {
+            max-width: 85%;
+            margin: 0 auto;
+            padding: 20px;
+            background: rgba(255, 225, 225, 0.904);
+            box-shadow: 0 2px 10px rgba(158, 60, 249, 0.829);
+        }
+        
+        .quiz-section {
+            text-align: center;
+        }
+        .quiz-section h2 {
+            margin-bottom: 50px;
+            color: #ec427b;
+        }
+        .quiz-section .article {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .article h3 {
+            margin: 0;
+            flex: 1; /* Faz o título ocupar o máximo de espaço disponível */
+        }
+
+        .article {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column; /* Permite empilhar elementos */
+    align-items: center;    /* Centraliza horizontalmente */
+    text-align: center;     /* Alinha o texto ao centro */
+}
+
+.article img {
+    margin: 10px auto; /* Espaçamento em volta e centraliza */
+    width: 90px;       /* Ajuste o tamanho conforme necessário */
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover; /* Evita distorção */
+}
+
+
+        .section {
+            margin-bottom: 20px;
+        }
+        .section h2 {
+            color: #ec427b;
+        }
+
+        
+        .footer {
+            width: 100%;
+            background-color: rgb(248, 80, 167);
+            text-align: center;
+            color: white;
+            padding: 10px;
+            box-sizing: border-box; /* Garante que o padding não aumente a largura */
+        }
+
+        .divider {
+        border: 0;
+        border-top: 2px solid #ec427b; /* Cor rosa */
+        margin: 20px 0;
+        opacity: 1; /* Totalmente opaca */
+    }
+       
+    </style>
 </head>
-<body>
-    <h1>Entre em Contato</h1>
-    <form id="contactForm">
-        <label for="name">Nome:</label>
-        <input type="text" id="name" name="name" required><br><br>
 
-        <label for="email">E-mail:</label>
-        <input type="email" id="email" name="email" required><br><br>
 
-        <label for="message">Mensagem:</label><br>
-        <textarea id="message" name="message" required></textarea><br><br>
 
-        <button type="submit">Enviar</button>
-    </form>
+    <header>
+        <img src="logo 2.0.ico" alt="Logo da Empresa" class="logo"> <!-- Logo da empresa -->
+        <p style="margin-left: 15px; font-family: 'Roboto', sans-serif; font-size: 20px;">T.D.T.I</p>
+        <div class="nav-container">
+            <nav>
+                <!-- Link alterado para a página inicial -->
+                <a href="onepage.html" style="margin-left: 15px; font-family: 'Roboto', sans-serif; font-size: 18px;" = "Ir para a página inicial">Início</a>
+                
+                <!-- Link alterado para a página de notícias -->
+                <a href="noticias.html" style="margin-left: 15px; font-family: 'Roboto', sans-serif; font-size: 18px;"="Ver notícias">Notícias</a>
+                
+                <!-- Link alterado para a página sobre -->
+                <a href="testefundo.html" style="margin-left: 15px; font-family: 'Roboto', sans-serif; font-size: 18px;"="Saiba mais sobre nós">Sobre</a>
+                
+                <!-- Link alterado para a página de contato -->
+                <a href="testefundo.html" style="margin-left: 15px; font-family: 'Roboto', sans-serif; font-size: 18px;"="Entre em contato">Contato</a>
+            </nav>
+        </div>
+        <div class="search-container">
+            <input type="text" placeholder="Buscar...">
+        </div>
+    </header>
 
-    <script>
-        document.getElementById("contactForm").addEventListener("submit", function(event) {
-            let name = document.getElementById("name").value;
-            let email = document.getElementById("email").value;
-            let message = document.getElementById("message").value;
 
-            if (!name || !email || !message) {
-                alert("Todos os campos são obrigatórios!");
-                event.preventDefault();  // Impede o envio do formulário
-            } else if (!/\S+@\S+\.\S+/.test(email)) {
-                alert("Por favor, insira um e-mail válido.");
-                event.preventDefault();
-            }
-        });
-    </script>
+    <div class="container">
+        
+        <div class="quiz-section">
+            <h2>Introdução ao Teste de Software</h2>
+            <div class="article">
+                    <h3>Os testes de software são essenciais para assegurar que um sistema funcione de acordo com os requisitos estabelecidos e identifiquem possíveis defeitos antes que causem problemas na produção. Desde os anos 1960, as práticas de teste evoluíram de abordagens simples, como testes unitários, para métodos mais complexos e especializados, como os testes de integração e regressão. Atualmente, a crescente complexidade das aplicações exige testes detalhados e planejados, que incluem desde a validação de requisitos até a execução de simulações controladas. Ainda que não seja possível garantir a ausência de falhas, o propósito do teste é minimizar os riscos e garantir maior confiabilidade, evitando custos elevados na manutenção de sistemas mal desenvolvidos. Além disso, técnicas como inspeções e walkthroughs ajudam a detectar erros nas fases iniciais, promovendo maior qualidade ao longo do desenvolvimento.</h3>
+               
+            </div>
+
+            <script>(function(q,u,i,z,r){z=q.createElement(u),r=q.getElementsByTagName(u)[0];z.async=1;z.src=i;r.parentNode.insertBefore(z,r);})(document,'script','https://pt.quizur.com/js/embedder.js');</script><ins class="quizurembed" data-id="http://pt.quizur.com/trivia/teste-seu-conhecimento-sobre-introducao-ao-teste-de-software-1nXkU"></ins> <div style="text-align:center; margin-top:20px; hidth: 50px; width:50">
+                <hr class="divider">
+            </div>
+           
+
+            <div class="quiz-section">
+            <h2>Conceito de Qualidade de Software</h2>
+            <div class="article">
+                    <h3>A qualidade de software, por sua vez, pode ser entendida como o grau em que um sistema atende às expectativas e necessidades do usuário, além de estar livre de defeitos. Esse conceito é subjetivo, podendo variar de acordo com a aplicação e as percepções dos envolvidos. A história da busca pela qualidade no desenvolvimento remonta aos séculos XVIII e XIX, quando o controle era realizado diretamente pelos artesãos. Durante as guerras mundiais, o controle de qualidade ganhou caráter científico, com o uso de estatísticas e probabilidade. No Japão dos anos 1950, métodos rigorosos como os propostos por Deming e Juran revolucionaram a indústria, enquanto no Brasil a preocupação com qualidade se consolidou na década de 1990, com a abertura de mercado e a adoção de programas como o PBQP. No contexto atual, a qualidade de software é assegurada por meio de testes funcionais, estruturais e não funcionais, bem como por certificações como ISO 9000 e CMMI, que padronizam processos e promovem confiabilidade.
+                    </h3>
+            </div>
+
+            <script>(function(q,u,i,z,r){z=q.createElement(u),r=q.getElementsByTagName(u)[0];z.async=1;z.src=i;r.parentNode.insertBefore(z,r);})(document,'script','https://pt.quizur.com/js/embedder.js');</script><ins class="quizurembed" data-id="http://pt.quizur.com/trivia/teste-seu-conhecimento-sobre-conceito-de-qualidade-de-software-1nXld"></ins> <div style="text-align:center; margin-top:20px">
+                <hr class="divider">
+            </div>
+            
+
+            <div class="quiz-section">
+            <h2>Ciclos de Vida de Software</h2>
+            <div class="article">
+                    <h3>O ciclo de vida do software consiste em etapas fundamentais como especificação, projeto, implementação, validação e evolução. Essas fases garantem que o sistema atenda às necessidades do cliente e evolua conforme surgem novas demandas. A especificação detalha as funcionalidades e as restrições do sistema, enquanto o projeto organiza a estrutura e os algoritmos. Durante a implementação, a programação converte essas ideias em código funcional. A validação verifica se o sistema funciona corretamente, e a evolução garante que ele continue relevante com o passar do tempo. Para gerenciar essas etapas, são utilizados diferentes modelos de ciclo de vida, como o Cascata, que segue uma sequência linear; o Espiral, que é iterativo e aborda o gerenciamento de riscos; e os Métodos Ágeis, que priorizam flexibilidade e entregas rápidas. A escolha do modelo depende das características e necessidades do projeto.</h3>
+            </div>
+
+            <script>(function(q,u,i,z,r){z=q.createElement(u),r=q.getElementsByTagName(u)[0];z.async=1;z.src=i;r.parentNode.insertBefore(z,r);})(document,'script','https://pt.quizur.com/js/embedder.js');</script><ins class="quizurembed" data-id="http://pt.quizur.com/trivia/teste-seu-conhecimento-sobre-ciclos-de-vida-de-software-1nXlw"></ins> <div style="text-align:center; margin-top:20px">
+                <hr class="divider">
+            </div>
+
+
+            <div class="quiz-section">
+            <h2>Rational Unified Process (RUP) e TMAp</h2>
+            <div class="article">
+                    <h3>O Rational Unified Process (RUP) é uma metodologia de desenvolvimento orientada a objetos que organiza o projeto em quatro fases: concepção, elaboração, construção e transição. Cada etapa aborda aspectos específicos, como comunicação com clientes, definição da arquitetura, codificação e entrega do sistema. O RUP é projetado para assegurar a qualidade e atender aos cronogramas e orçamentos previstos. Já o Testing Management Approach (TMAp) complementa essas práticas ao oferecer diretrizes para gerenciar testes de forma eficiente. O modelo TMMi, por exemplo, avalia a maturidade dos processos de teste, promovendo sua melhoria contínua. Ambas as abordagens têm como objetivo final garantir que os produtos de software sejam robustos, confiáveis e alinhados aos requisitos.</h3>
+            </div>
+
+            <script>(function(q,u,i,z,r){z=q.createElement(u),r=q.getElementsByTagName(u)[0];z.async=1;z.src=i;r.parentNode.insertBefore(z,r);})(document,'script','https://pt.quizur.com/js/embedder.js');</script><ins class="quizurembed" data-id="http://pt.quizur.com/trivia/teste-seu-conhecimento-sobre-rational-unified-process-rup-e-tmap-1nZLZ"></ins> <div style="text-align:center; margin-top:20px">
+                <hr class="divider">
+            </div>
+
+
+
+            <div class="quiz-section">
+            <h2>Processos de Revisões</h2>
+            <div class="article">
+                    <h3>Os processos de revisão são outro aspecto crucial no desenvolvimento de software. Revisões sistemáticas de documentos, códigos e processos ajudam a identificar falhas antes da execução dos testes, o que reduz custos e melhora a qualidade. Inspeções formais, revisões técnicas e walkthroughs permitem que equipes analisem projetos em profundidade, garantindo que os padrões e boas práticas sejam seguidos. Essas atividades, realizadas em conjunto com testes, criam um ciclo de melhoria contínua, assegurando a entrega de sistemas mais confiáveis e alinhados às expectativas do cliente.</h3>
+            </div>
+
+            <script>(function(q,u,i,z,r){z=q.createElement(u),r=q.getElementsByTagName(u)[0];z.async=1;z.src=i;r.parentNode.insertBefore(z,r);})(document,'script','https://pt.quizur.com/js/embedder.js');</script><ins class="quizurembed" data-id="http://pt.quizur.com/trivia/teste-seu-conhecimento-sobre-processos-de-revisoes-1nZMf"></ins> <div style="text-align:center; margin-top:20px">
+                <hr class="divider">
+             </div>
+        </div>
+
+        
+
+        <div class="section" id="contato">
+            <h2>Contato</h2>
+            <p>Entre em contato conosco pelo e-mail: t.d.t.i.portaldenoticias@gmail.com</p>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    
+            
 </body>
+  <!-- Footer separado -->
+  
+    <footer class="footer">
+    <p>&copy; 2024 Portal de Notícias. Todos os direitos reservados.</p>
+    </footer>
+    
 </html>
